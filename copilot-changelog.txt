@@ -132,6 +132,32 @@ This file tracks all user requests and the changes made by Copilot, including wh
 - **Why:**
   - Ensures a smooth deployment process on Vercel, preventing potential issues with peer dependencies.
 
+### TinyMCE Domain Registration Fix
+- **User Request:** TinyMCE editor showed a warning about the domain not being registered after deployment to Vercel.
+- **Action:**
+  - Registered the deployed Vercel domain (`react-appwrite-blog-app.vercel.app`) in the TinyMCE Cloud dashboard under the API key's allowed domains.
+  - This removed the warning and enabled TinyMCE to work on the production site.
+- **Why:**
+  - TinyMCE requires all production domains to be registered for API key usage. This is necessary for the editor to function without warnings or restrictions on deployed sites.
+
+---------------------------------------------------------------------------------------------------------
+
+  Appwrite serive :: getCurrentUser :: error TypeError: Failed to fetch
+    at In.<anonymous> (index-CQoFFG-X.js:57:12062)
+    at Generator.next (<anonymous>)
+    at index-CQoFFG-X.js:57:4037
+    at new Promise (<anonymous>)
+    at rf (index-CQoFFG-X.js:57:3837)
+    at In.call (index-CQoFFG-X.js:57:11951)
+    at mS.get (index-CQoFFG-X.js:57:13660)
+    at bS.getCurrentUser (index-CQoFFG-X.js:57:41004)
+    at index-CQoFFG-X.js:118:10506
+    at ur (index-CQoFFG-X.js:48:83665)
+react-appwrite-blog-app.vercel.app/:1 Access to fetch at 'https://fra.cloud.appwrite.io/v1/databases/685d8806001859b77a48/collections/685d881e002af7d2612b/documents?queries%5B0%5D=%7B%22method%22%3A%22equal%22%2C%22attribute%22%3A%22status%22%2C%22values%22%3A%5B%22active%22%5D%7D' from origin 'https://react-appwrite-blog-app.vercel.app' 
+has been blocked by CORS policy: The 'Access-Control-Allow-Origin' header has a value 'https://localhost' that is not equal to the supplied origin. Have the server send the header with a valid value.
+------------------------------------------------------------------------------------------------------------------------------------------
+
+
 ---
 
 (For all future changes, entries will be added here with details on what was changed, where, and why.)
