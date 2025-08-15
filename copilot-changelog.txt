@@ -1,0 +1,120 @@
+# Copilot Change Log
+
+This file tracks all user requests and the changes made by Copilot, including what was changed, where, and why.
+
+---
+
+## 2025-06-28
+
+### Sticky Footer & Responsiveness
+- **User Request:** Make the footer always sit at the bottom (sticky footer) and check if the app is responsive.
+- **Action:**
+  - Updated `src/App.jsx` to use `flex flex-col min-h-screen` and `main` with `flex-1`.
+  - This ensures the footer always sits at the bottom, with no extra space below.
+  - Confirmed that Tailwind's responsive classes are used throughout the app, so the app is responsive by default.
+- **Code Comments:**
+  - Added a comment in `App.jsx` explaining the sticky footer layout and why the change was made.
+
+### Unified Blog Color Palette
+- **User Request:** Choose and apply the best, production-safe color palette for the whole app.
+- **Action:**
+  - Updated `src/index.css` with a modern, readable palette:
+    - Primary accent: blue-600 (#2563eb)
+    - Background: slate-50 (#f8fafc)
+    - Card/Header/Footer: white (#fff)
+    - Text: slate-800 (#1e293b)
+    - Subtle border: slate-200 (#e5e7eb)
+    - Hover: blue-700 (#1d4ed8)
+  - Added clear comments to the CSS for future reference.
+- **Why:**
+  - This palette is modern, readable, and safe for production blog apps.
+  - Ensures a consistent, professional look across all pages.
+
+### UI Enhancements for a Polished Blog Look
+- **User Request:** Further enhance the look and feel for a more modern, production-grade blog.
+- **Action:**
+  - Updated `src/index.css`:
+    - Made the main content background lighter for a brighter feel.
+    - Added a subtle shadow and border to the header for separation.
+    - Added a hover underline effect to header nav links for interactivity.
+    - Added a border to cards for better definition.
+    - Added a top shadow to the footer for separation.
+  - All changes are clearly commented in the CSS.
+- **Why:**
+  - These enhancements make the app look more polished, modern, and visually appealing while keeping it simple and professional.
+
+### Unique, Branded Blog Background
+- **User Request:** Make the background more unique and branded to match the blue navbar accent.
+- **Action:**
+  - Updated `src/index.css`:
+    - Switched to a subtle blue gradient background (`#e0ecfa` to `#f8fafc`) for depth and a modern, branded feel.
+    - Kept header, footer, and cards white for contrast and readability.
+  - All changes are clearly commented in the CSS.
+- **Why:**
+  - The blue gradient background ties in with the blue navbar accent, making the app feel more cohesive and visually appealing.
+  - Still maintains a clean, professional look suitable for a blog.
+
+### Three-Column, Balanced Footer Layout
+- **User Request:** Update footer to a balanced three-column layout (logo left, links center, copyright right) and keep changelog/comments.
+- **Action:**
+  - Updated `src/components/Footer/Footer.jsx`:
+    - Used flexbox to create three columns: logo (left), navigation links (center), copyright (right).
+    - Responsive: stacks vertically on mobile, columns on desktop.
+    - Added clear comments for future reference.
+- **Why:**
+  - This layout is visually balanced, professional, and familiar to users.
+  - Works well for production blogs and business sites.
+
+### SVG Logo Component
+- **User Request:** Add a logo to the site for a more professional, branded appearance.
+- **Action:**
+  - Updated `src/components/Logo.jsx`:
+    - Replaced the text 'Logo' with a simple SVG logo (blue square and 'Blog' text) for branding.
+    - Added a comment explaining how to swap the SVG for a custom logo later.
+- **Why:**
+  - An SVG logo looks more polished and production-ready than plain text.
+  - Easy to customize for your own brand in the future.
+
+### Post Page Layout & Readability Fix
+- **User Request:** The post image appears too large, and the heading/content are not organized or readable.
+- **Action:**
+  - Updated `src/pages/Post.jsx`:
+    - Limited the post image's max height and made it responsive (`max-h-[400px] w-auto object-contain shadow-md`).
+    - Centered and enlarged the post title for emphasis.
+    - Wrapped the post content in a styled, centered card (`max-w-2xl bg-white bg-opacity-80 rounded-lg p-6 shadow`).
+    - Added comments to explain all changes.
+  - All changes are clearly commented in the CSS.
+- **Why:**
+  - These changes make the post page much more readable, visually appealing, and professional.
+  - Prevents images from overflowing and keeps content organized.
+
+### TinyMCE Deprecation Fix & PostForm Error Handling
+- **User Request:** Remove deprecated TinyMCE plugins/options and fix PostForm `$id` error.
+- **Action:**
+  - Updated `src/components/RTE.jsx`:
+    - Removed deprecated plugins: `textcolor`, `colorpicker` from the TinyMCE config.
+    - Removed deprecated options: `templates`, `textcolor_rows`, `textcolor_map`.
+    - Added comments for clarity.
+  - Updated `src/components/post-form/PostForm.jsx`:
+    - Added a check at the start of the submit function to ensure `userData` and `userData.$id` are defined before proceeding.
+    - Shows an alert if the user is not authenticated, preventing the TypeError.
+    - Added comments for clarity.
+- **Why:**
+  - Prevents TinyMCE 6+ warnings and ensures future compatibility.
+  - Keeps the codebase clean and up-to-date.
+  - Prevents runtime errors and provides a better user experience if the user is not logged in.
+
+### Consistent Post Image Sizing in PostCard
+- **User Request:** Post images on the home page were misaligned and inconsistent in size.
+- **Action:**
+  - Updated `src/components/PostCard.jsx`:
+    - Set a fixed height (`h-64`), full width (`w-full`), and `object-cover` for all post images.
+    - Ensures all post images are uniform, aligned, and visually consistent in the grid.
+    - Added comments for clarity.
+- **Why:**
+  - Provides a clean, professional, and visually appealing layout for all post cards.
+  - Prevents images from appearing too large or too small compared to others.
+
+---
+
+(For all future changes, entries will be added here with details on what was changed, where, and why.)

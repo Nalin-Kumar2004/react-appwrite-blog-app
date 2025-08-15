@@ -19,6 +19,10 @@ export default function PostForm({ post }) {
     const userData = useSelector((state) => state.auth.userData);
 
     const submit = async (data) => {
+        if (!userData || !userData.$id) {
+            alert("User not authenticated. Please log in again.");
+            return;
+        }
         if (post) {
             const file = data.image[0] ? await appwriteService.uploadFile(data.image[0]) : null;
 
@@ -36,7 +40,6 @@ export default function PostForm({ post }) {
             }
         } else {
             const file = await appwriteService.uploadFile(data.image[0]);
-
             if (file) {
                 const fileId = file.$id;
                 data.featuredImage = fileId;

@@ -61,7 +61,8 @@
 //                 "anchor", "searchreplace", "visualblocks", "code", "fullscreen",
 //                 "insertdatetime", "media", "table", "help", "wordcount", "pagebreak",
 //                 "emoticons", "codesample", "directionality", "hr", "nonbreaking",
-//                 "textcolor", "colorpicker", "fontsize", "fontselect", "print", "save"
+//                 "fontsize", "fontselect", "print", "save", // Removed deprecated: "textcolor", "colorpicker"
+//                 "underline" // Added underline plugin
 //               ],
 //               toolbar: "undo redo | styles | bold italic underline strikethrough | " +
 //                        "fontselect fontsizeselect | forecolor backcolor | " +
@@ -97,6 +98,18 @@
 //                   border-radius: 4px;
 //                   overflow: auto;
 //                 }
+//                 .callout {
+//                   background: #e6f7ff;
+//                   border-left: 4px solid #1890ff;
+//                   padding: 10px 15px;
+//                   margin: 15px 0;
+//                 }
+//                 .warning-box {
+//                   background: #fffbe6;
+//                   border-left: 4px solid #faad14;
+//                   padding: 10px 15px;
+//                   margin: 15px 0;
+//                 }
 //               `,
 //               style_formats: [
 //                 { title: 'Heading 1', format: 'h1' },
@@ -124,36 +137,14 @@
 //               valid_styles: {
 //                 '*': 'color,background-color,font-size,font-family,text-align,float,margin,padding,display,position,top,left'
 //               },
-//               textcolor_rows: 4,
-//               textcolor_map: [
-//                 "000000", "Black",
-//                 "FF0000", "Red",
-//                 "00FF00", "Green",
-//                 "0000FF", "Blue",
-//                 "FFFF00", "Yellow",
-//                 "FF00FF", "Magenta",
-//                 "00FFFF", "Cyan",
-//                 "FFFFFF", "White"
-//               ],
+//               // Removed deprecated: textcolor_rows, textcolor_map, templates
 //               a11y_advanced_options: true,
 //               table_default_attributes: {
 //                 border: '1'
 //               },
 //               table_default_styles: {
 //                 width: '100%'
-//               },
-//               templates: [
-//                 {
-//                   title: 'Two Columns',
-//                   description: 'Adds a two column layout',
-//                   content: '<div class="grid grid-cols-2 gap-4"><div class="col"><p>Column 1</p></div><div class="col"><p>Column 2</p></div></div>'
-//                 },
-//                 {
-//                   title: 'Call to Action',
-//                   description: 'Styled call to action section',
-//                   content: '<div class="cta-section" style="background:#f0f8ff; padding:20px; text-align:center; border-radius:8px; margin:20px 0;"><h3>Call to Action</h3><p>This is an important message for your readers</p><a href="#" class="btn" style="display:inline-block; background:#4b6cb7; color:white; padding:10px 20px; border-radius:4px; text-decoration:none; margin-top:10px;">Learn More</a></div>'
-//                 }
-//               ]
+//               }
 //             }}
 //           />
 //         )}
@@ -173,6 +164,8 @@
 //           <span className="px-2 py-1 bg-blue-100 text-blue-800 text-xs rounded">Templates</span>
 //           <span className="px-2 py-1 bg-blue-100 text-blue-800 text-xs rounded">Fullscreen</span>
 //           <span className="px-2 py-1 bg-blue-100 text-blue-800 text-xs rounded">Print</span>
+//           <span className="px-2 py-1 bg-blue-100 text-blue-800 text-xs rounded">Underline</span>
+//           <span className="px-2 py-1 bg-blue-100 text-blue-800 text-xs rounded">Strikethrough</span>
 //         </div>
 //       </div>
 //     </div>
@@ -245,7 +238,7 @@ export default function RTE({ name, control, label, defaultValue = "" }) {
                 "anchor", "searchreplace", "visualblocks", "code", "fullscreen",
                 "insertdatetime", "media", "table", "help", "wordcount", "pagebreak",
                 "emoticons", "codesample", "directionality", "hr", "nonbreaking",
-                "textcolor", "colorpicker", "fontsize", "fontselect", "print", "save",
+                "fontsize", "fontselect", "print", "save",
                 "underline" // Added underline plugin
               ],
               toolbar: "undo redo | styles | bold italic underline strikethrough | " +
@@ -321,36 +314,13 @@ export default function RTE({ name, control, label, defaultValue = "" }) {
               valid_styles: {
                 '*': 'color,background-color,font-size,font-family,text-align,float,margin,padding,display,position,top,left'
               },
-              textcolor_rows: 4,
-              textcolor_map: [
-                "000000", "Black",
-                "FF0000", "Red",
-                "00FF00", "Green",
-                "0000FF", "Blue",
-                "FFFF00", "Yellow",
-                "FF00FF", "Magenta",
-                "00FFFF", "Cyan",
-                "FFFFFF", "White"
-              ],
               a11y_advanced_options: true,
               table_default_attributes: {
                 border: '1'
               },
               table_default_styles: {
                 width: '100%'
-              },
-              templates: [
-                {
-                  title: 'Two Columns',
-                  description: 'Adds a two column layout',
-                  content: '<div class="grid grid-cols-2 gap-4"><div class="col"><p>Column 1</p></div><div class="col"><p>Column 2</p></div></div>'
-                },
-                {
-                  title: 'Call to Action',
-                  description: 'Styled call to action section',
-                  content: '<div class="cta-section" style="background:#f0f8ff; padding:20px; text-align:center; border-radius:8px; margin:20px 0;"><h3>Call to Action</h3><p>This is an important message for your readers</p><a href="#" class="btn" style="display:inline-block; background:#4b6cb7; color:white; padding:10px 20px; border-radius:4px; text-decoration:none; margin-top:10px;">Learn More</a></div>'
-                }
-              ]
+              }
             }}
           />
         )}

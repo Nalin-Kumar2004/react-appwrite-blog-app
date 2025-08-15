@@ -23,14 +23,15 @@ function App() {
   }, [])
   
   return !loading ? (
-    <div className='min-h-screen flex flex-wrap content-between bg-gray-400'>
-      <div className='w-full block'>
-        <Header />
-        <main>
-        TODO:  <Outlet />
-        </main>
-        <Footer />
-      </div>
+    // Copilot: Sticky footer layout - flex-col, min-h-screen, main grows to fill space
+    // Removed: old nested flex-wrap/content-between layout that caused extra space below footer
+    // Added: flex-col, min-h-screen, and flex-1 on main to ensure footer always sits at the bottom
+    <div className='min-h-screen flex flex-col bg-gray-400'>
+      <Header />
+      <main className='flex-1'>
+        <Outlet />
+      </main>
+      <Footer />
     </div>
   ) : null
 }

@@ -82,3 +82,65 @@
   padding: 0.2rem 0.4rem;
   border-radius: 0.25rem;
 }
+
+/* === Copilot: Modern background gradient for the whole app === */
+body {
+  background: linear-gradient(135deg, #e0ecfa 0%, #f8fafc 100%);
+  min-height: 100vh;
+}
+
+main {
+  background: transparent;
+  min-height: 60vh;
+}
+
+/* === Copilot: Glassy, blurred header for a modern look === */
+header {
+  background: #fff !important;
+  color: #1e293b;
+  border-bottom: 1px solid #e5e7eb;
+  box-shadow: 0 2px 8px 0 rgba(0,0,0,0.04);
+}
+
+/* === Copilot: Glassy, clean footer style === */
+footer, section.bg-gray-400 {
+  background: rgba(255,255,255,0.85) !important;
+  color: #1e293b;
+  border-top: 1px solid #e5e7eb;
+  box-shadow: 0 -2px 8px 0 rgba(0,0,0,0.04);
+}
+
+/* === Copilot: Card improvements for post cards (shadow, hover, modern) === */
+.bg-gray-100 {
+  background: #fff !important;
+  box-shadow: 0 4px 24px 0 rgba(0,0,0,0.07);
+  border: 1px solid #e5e7eb;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.bg-gray-100:hover {
+  transform: translateY(-4px) scale(1.03);
+  box-shadow: 0 8px 32px 0 rgba(0,0,0,0.12);
+}
+
+/* === Copilot: Nav button improvements (hover, color, font) === */
+button.inline-bock {
+  font-weight: 500;
+  color: #2563eb;
+  background: transparent;
+  transition: background 0.2s, color 0.2s;
+  border-bottom: 2px solid transparent;
+}
+button.inline-bock:hover {
+  background: #1d4ed8;
+  color: #fff;
+  border-bottom: 2px solid #2563eb;
+}
+
+.text-gray-600 { color: #64748b; }
+.text-gray-500 { color: #6b7280; }
+.text-gray-900 { color: #1e293b; }
+
+/* Copilot: Ensure all text is readable and consistent */
+body, h1, h2, h3, h4, h5, h6, p, a, li, span, div {
+  color: #1e293b;
+}

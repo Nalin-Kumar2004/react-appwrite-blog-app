@@ -39,7 +39,7 @@ export default function Post() {
                     <img
                         src={appwriteService.getFileView(post.featuredImage)}
                         alt={post.title}
-                        className="rounded-xl"
+                        className="rounded-xl max-h-[400px] w-auto object-contain shadow-md"
                     />
 
                     {isAuthor && (
@@ -55,11 +55,10 @@ export default function Post() {
                         </div>
                     )}
                 </div>
-                <div className="w-full mb-6">
-                    <h1 className="text-2xl font-bold">{post.title}</h1>
+                <div className="w-full mb-6 text-center">
+                    <h1 className="text-3xl font-extrabold mb-2">{post.title}</h1>
                 </div>
-                {/* Add the rendered-content wrapper here :  Fixed Error */}
-                <div className="rendered-content">
+                <div className="rendered-content mx-auto max-w-2xl bg-white bg-opacity-80 rounded-lg p-6 shadow">
                     {parse(post.content)}
                 </div>
             </Container>
