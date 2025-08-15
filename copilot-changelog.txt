@@ -140,6 +140,26 @@ This file tracks all user requests and the changes made by Copilot, including wh
 - **Why:**
   - TinyMCE requires all production domains to be registered for API key usage. This is necessary for the editor to function without warnings or restrictions on deployed sites.
 
+### Vercel SPA Routing Fix
+- **User Request:** Refreshing a non-root route on the deployed Vercel site caused a crash or 404 error.
+- **Action:**
+  - Updated `vercel.json` to add a rewrite rule:
+    ```json
+    {
+      "rewrites": [
+        { "source": "/(.*)", "destination": "/" }
+      ],
+      "build": {
+        "env": {
+          "NPM_CONFIG_LEGACY_PEER_DEPS": "true"
+        }
+      }
+    }
+    ```
+  - This ensures all routes are served by `index.html`, allowing React Router to handle client-side routing.
+- **Why:**
+  - Fixes the issue where refreshing or directly visiting a nested route would break the app on Vercel deployments.
+
 ---------------------------------------------------------------------------------------------------------
 
   Appwrite serive :: getCurrentUser :: error TypeError: Failed to fetch
