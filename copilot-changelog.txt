@@ -115,6 +115,23 @@ This file tracks all user requests and the changes made by Copilot, including wh
   - Provides a clean, professional, and visually appealing layout for all post cards.
   - Prevents images from appearing too large or too small compared to others.
 
+### Vercel Deployment Fix
+- **User Request:** Ensure the app deploys correctly on Vercel, especially regarding React and TinyMCE dependencies.
+- **Action:**
+  - Created `vercel.json` in the project root with the following content:
+    ```json
+    {
+      "build": {
+        "env": {
+          "NPM_CONFIG_LEGACY_PEER_DEPS": "true"
+        }
+      }
+    }
+    ```
+  - This configuration forces Vercel to use `--legacy-peer-deps` during `npm install`, resolving the React/TinyMCE dependency conflict.
+- **Why:**
+  - Ensures a smooth deployment process on Vercel, preventing potential issues with peer dependencies.
+
 ---
 
 (For all future changes, entries will be added here with details on what was changed, where, and why.)
