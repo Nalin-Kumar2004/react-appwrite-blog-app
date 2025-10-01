@@ -54,11 +54,13 @@ export default function Post() {
                             <Button bgColor="bg-red-500" onClick={deletePost}>Delete</Button>
                         </div>
                     )}
-                    <img
-                        src={appwriteService.getFileView(post.featuredImage)}
-                        alt={post.title}
-                        className="relative z-0 w-full h-56 sm:h-64 md:h-96 lg:h-[28rem] object-cover rounded-lg"
-                    />
+                    <div className="relative z-0 w-full h-56 sm:h-64 md:h-96 lg:h-[28rem] flex items-center justify-center">
+                        <img
+                            src={appwriteService.getFileView(post.featuredImage)}
+                            alt={post.title}
+                            className="max-h-full max-w-full object-contain rounded-lg"
+                        />
+                    </div>
                 </div>
                 {/* Inline buttons on small screens (always visible, no overlay) */}
                 {canEdit && (
