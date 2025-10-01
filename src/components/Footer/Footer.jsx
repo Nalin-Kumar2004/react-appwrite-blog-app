@@ -14,7 +14,7 @@ function Footer() {
         <div className="flex flex-col md:flex-row w-full items-center justify-between">
           {/* Left: Logo */}
           <div className="flex-1 flex justify-center md:justify-start mb-4 md:mb-0">
-            <Logo width="120px" />
+            <Logo width="200px" />
           </div>
           {/* Center: Navigation links */}
           <div className="flex-1 flex justify-center space-x-6 mb-4 md:mb-0">
