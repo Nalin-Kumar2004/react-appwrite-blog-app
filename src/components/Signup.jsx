@@ -27,10 +27,10 @@ function Signup() {
     }
 
   return (
-    <div className="flex items-center justify-center w-full min-h-screen py-8">
-            <div className={`mx-auto w-full max-w-lg bg-gray-100 rounded-xl p-10 border border-black/10`}>
-            <div className="mb-2 flex justify-center">
-                <Logo width="200px" />
+    <div className="flex items-center justify-center w-full py-12">
+            <div className={`mx-auto w-full max-w-md bg-white rounded-xl p-8 border border-gray-200 shadow-lg`}>
+            <div className="mb-6 flex justify-center">
+                <Logo width="120px" />
             </div>
                 <h2 className="text-center text-2xl font-bold leading-tight">Sign up to create account</h2>
                 <p className="mt-2 text-center text-base text-black/60">
