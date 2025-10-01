@@ -34,5 +34,6 @@ dist-ssr
 *.sln
 *.sw?
 
-# Copilot changelog (keep private)
+# Copilot changelog (keep private - NEVER commit)
 copilot-changelog.txt
+**/copilot-changelog.txt

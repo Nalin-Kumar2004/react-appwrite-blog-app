@@ -33,40 +33,33 @@ export default function Post() {
     };
 
     return post ? (
-        <div className="py-8 min-h-screen">
+        <div className="py-8">
             <Container>
-                <div className="max-w-4xl mx-auto">
-                    {/* Featured Image */}
-                    <div className="w-full flex justify-center mb-8 relative">
-                        <img
-                            src={appwriteService.getFileView(post.featuredImage)}
-                            alt={post.title}
-                            className="rounded-xl max-h-[500px] w-full object-cover shadow-lg"
-                        />
+                <div className="w-full flex justify-center mb-4 relative border rounded-xl p-2">
+                    <img
+                        src={appwriteService.getFileView(post.featuredImage)}
+                        alt={post.title}
+                        className="rounded-xl max-h-[400px] w-auto object-contain shadow-md"
+                    />
 
-                        {isAuthor && (
-                            <div className="absolute right-4 top-4">
-                                <Link to={`/edit-post/${post.$id}`}>
-                                    <Button bgColor="bg-green-500" className="mr-3">
-                                        Edit
-                                    </Button>
-                                </Link>
-                                <Button bgColor="bg-red-500" onClick={deletePost}>
-                                    Delete
+                    {isAuthor && (
+                        <div className="absolute right-6 top-6">
+                            <Link to={`/edit-post/${post.$id}`}>
+                                <Button bgColor="bg-green-500" className="mr-3">
+                                    Edit
                                 </Button>
-                            </div>
-                        )}
-                    </div>
-                    
-                    {/* Title */}
-                    <div className="w-full mb-8 text-center">
-                        <h1 className="text-4xl md:text-5xl font-bold text-gray-800 leading-tight">{post.title}</h1>
-                    </div>
-                    
-                    {/* Content */}
-                    <div className="rendered-content mx-auto max-w-3xl bg-white rounded-xl p-8 shadow-lg prose prose-lg">
-                        {parse(post.content)}
-                    </div>
+                            </Link>
+                            <Button bgColor="bg-red-500" onClick={deletePost}>
+                                Delete
+                            </Button>
+                        </div>
+                    )}
+                </div>
+                <div className="w-full mb-6 text-center">
+                    <h1 className="text-3xl font-extrabold mb-2">{post.title}</h1>
+                </div>
+                <div className="rendered-content mx-auto max-w-2xl bg-white bg-opacity-80 rounded-lg p-6 shadow">
+                    {parse(post.content)}
                 </div>
             </Container>
         </div>
