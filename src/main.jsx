@@ -16,6 +16,8 @@ import EditPost from "./pages/EditPost";
 import Post from "./pages/Post";
 
 import AllPosts from "./pages/AllPosts";
+import Contact from './pages/Contact.jsx'
+import Privacy from './pages/Privacy.jsx'
 
 const router = createBrowserRouter([
   {
@@ -72,6 +74,14 @@ const router = createBrowserRouter([
         {
             path: "/post/:slug",
             element: <Post />,
+        },
+        {
+            path: "/contact",
+            element: <Contact />,
+        },
+        {
+            path: "/privacy",
+            element: <Privacy />,
         },
     ],
 },

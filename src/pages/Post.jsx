@@ -49,9 +49,20 @@ export default function Post() {
                         <div className="w-full flex justify-center">
                             <div className="bg-white/80 backdrop-blur px-3 py-2 rounded-full shadow flex gap-2">
                                 <Link to={`/edit-post/${post.$id}`}>
-                                    <Button bgColor="bg-green-500" className="px-3 py-1.5 text-sm">Edit</Button>
+                                    <Button
+                                        bgColor="bg-green-500"
+                                        className="px-5 py-2 text-sm !rounded-full shadow-sm hover:bg-green-600 focus-visible:ring-green-600"
+                                    >
+                                        Edit
+                                    </Button>
                                 </Link>
-                                <Button bgColor="bg-red-500" className="px-3 py-1.5 text-sm" onClick={deletePost}>Delete</Button>
+                                <Button
+                                    bgColor="bg-red-500"
+                                    className="px-5 py-2 text-sm !rounded-full shadow-sm hover:bg-red-600 focus-visible:ring-red-600"
+                                    onClick={deletePost}
+                                >
+                                    Delete
+                                </Button>
                             </div>
                         </div>
                     </div>

@@ -54,7 +54,8 @@ function Header() {
                 <li key={item.name}>
                   <button
                     onClick={() => navigate(item.slug)}
-                    className='inline-bock px-3 py-2 text-sm md:text-base duration-200 hover:bg-blue-100 rounded-full'
+                    className={`inline-bock px-3 py-2 text-sm md:text-base duration-200 rounded-full hover:bg-[rgba(14,165,233,0.12)] hover:text-[var(--accent-700)]
+                    ${typeof window !== 'undefined' && window.location && window.location.pathname === item.slug ? 'border-b-2 border-[var(--accent)]' : ''}`}
                   >
                     {item.name}
                   </button>
