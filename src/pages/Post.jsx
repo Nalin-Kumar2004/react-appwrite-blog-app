@@ -43,17 +43,21 @@ export default function Post() {
     return post ? (
         <div className="py-8">
             <Container>
+                {/* Centered action bar above image */}
+                {canEdit && (
+                    <div className="max-w-2xl mx-auto mb-3">
+                        <div className="w-full flex justify-center">
+                            <div className="bg-white/80 backdrop-blur px-3 py-2 rounded-full shadow flex gap-2">
+                                <Link to={`/edit-post/${post.$id}`}>
+                                    <Button bgColor="bg-green-500" className="px-3 py-1.5 text-sm">Edit</Button>
+                                </Link>
+                                <Button bgColor="bg-red-500" className="px-3 py-1.5 text-sm" onClick={deletePost}>Delete</Button>
+                            </div>
+                        </div>
+                    </div>
+                )}
                 {/* Featured image wrapper constrained like cards */}
                 <div className="w-full max-w-2xl mx-auto mb-6 relative rounded-xl overflow-hidden">
-                    {/* Overlay buttons on md+ screens */}
-                    {canEdit && (
-                        <div className="hidden md:flex absolute right-3 top-3 z-10 gap-2">
-                            <Link to={`/edit-post/${post.$id}`}>
-                                <Button bgColor="bg-green-500" className="mr-0">Edit</Button>
-                            </Link>
-                            <Button bgColor="bg-red-500" onClick={deletePost}>Delete</Button>
-                        </div>
-                    )}
                     <div className="relative z-0 w-full flex items-center justify-center">
                         <img
                             src={appwriteService.getFileView(post.featuredImage)}
@@ -62,17 +66,10 @@ export default function Post() {
                         />
                     </div>
                 </div>
-                {/* Inline buttons on small screens (always visible, no overlay) */}
-                {canEdit && (
-                    <div className="md:hidden max-w-2xl mx-auto -mt-2 mb-4 flex justify-end gap-2 px-2">
-                        <Link to={`/edit-post/${post.$id}`}>
-                            <Button bgColor="bg-green-500">Edit</Button>
-                        </Link>
-                        <Button bgColor="bg-red-500" onClick={deletePost}>Delete</Button>
+                <div className="w-full mb-6">
+                    <div className="max-w-2xl mx-auto">
+                        <h1 className="text-3xl font-extrabold text-center">{post.title}</h1>
                     </div>
-                )}
-                <div className="w-full mb-6 text-center">
-                    <h1 className="text-3xl font-extrabold mb-2">{post.title}</h1>
                 </div>
                 <div className="rendered-content mx-auto max-w-2xl bg-white rounded-lg p-6 shadow-md">
                     {parse(post.content)}
