@@ -10,14 +10,10 @@ function Footer() {
   return (
     <footer className="py-8 bg-orange-50 border-t border-orange-200 shadow-sm">
       <div className="max-w-7xl mx-auto px-4 flex flex-col md:flex-row md:items-center md:justify-between">
-        {/* Copilot: Three columns for desktop, stacked for mobile */}
+        {/* Copilot: Two sections for desktop, stacked for mobile - removed logo */}
         <div className="flex flex-col md:flex-row w-full items-center justify-between">
-          {/* Left: Logo */}
-          <div className="flex-1 flex justify-center md:justify-start mb-4 md:mb-0">
-            <Logo width="200px" />
-          </div>
-          {/* Center: Navigation links */}
-          <div className="flex-1 flex justify-center space-x-6 mb-4 md:mb-0">
+          {/* Left: Navigation links */}
+          <div className="flex-1 flex justify-center md:justify-start space-x-6 mb-4 md:mb-0">
             <Link to="/" className="text-gray-600 hover:text-blue-600 font-medium transition">Home</Link>
             <Link to="/all-posts" className="text-gray-600 hover:text-blue-600 font-medium transition">All Posts</Link>
             <Link to="/contact" className="text-gray-600 hover:text-blue-600 font-medium transition">Contact</Link>

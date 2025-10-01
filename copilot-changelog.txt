@@ -218,6 +218,21 @@ This file tracks all user requests and the changes made by Copilot, including wh
   - Creates strong brand presence across all pages
   - Professional, eye-catching logo presentation
 
+### Footer Logo Removal and Login/Signup UI Uniformity Fix
+- **User Request:** Remove logo from footer and make Login/Signup pages look uniform (they appeared different with inconsistent zooming/spacing).
+- **Action:**
+  - Updated `src/components/Footer/Footer.jsx`:
+    - Removed logo section completely from footer
+    - Adjusted layout to two sections instead of three (navigation links left, copyright right)
+  - Updated `src/components/Login.jsx` and `src/components/Signup.jsx`:
+    - Made both pages use identical container styling: `flex items-center justify-center w-full min-h-screen py-8`
+    - Both now have consistent padding, centering, and full-height layout
+    - Eliminated the visual differences and "zoomed" appearance inconsistency
+- **Why:**
+  - Cleaner footer without logo clutter
+  - Consistent user experience between Login and Signup pages
+  - Professional, uniform authentication flow
+
 ---------------------------------------------------------------------------------------------------------
 
   Appwrite serive :: getCurrentUser :: error TypeError: Failed to fetch
