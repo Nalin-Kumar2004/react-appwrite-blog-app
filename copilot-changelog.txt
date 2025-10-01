@@ -189,6 +189,22 @@ This file tracks all user requests and the changes made by Copilot, including wh
   - Creates a more professional and polished appearance
   - Eliminates the weird sizing issues caused by percentage-based widths
 
+### Logo Visibility and Footer Background Fix
+- **User Request:** Logo was too small for good visibility, and footer background conflicted with logo colors.
+- **Action:**
+  - Updated `src/components/Logo.jsx`:
+    - Increased default width from 80px to 120px for better visibility
+    - Increased height from 40px to 60px to maintain proportions
+  - Updated all components to use the new 120px width:
+    - Header, Footer, Login, and Signup pages all now use 120px
+  - Updated `src/components/Footer/Footer.jsx`:
+    - Changed footer background from `bg-white` to `bg-orange-50` to complement the orange logo
+    - Changed border from `border-gray-200` to `border-orange-200` for consistency
+- **Why:**
+  - Improved logo visibility and professional appearance
+  - Better color harmony between footer background and logo colors
+  - More prominent branding across the website
+
 ---------------------------------------------------------------------------------------------------------
 
   Appwrite serive :: getCurrentUser :: error TypeError: Failed to fetch

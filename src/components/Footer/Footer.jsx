@@ -8,13 +8,13 @@ import Logo from '../Logo'
 // - Comments for clarity
 function Footer() {
   return (
-    <footer className="py-8 bg-white border-t border-gray-200 shadow-sm">
+    <footer className="py-8 bg-orange-50 border-t border-orange-200 shadow-sm">
       <div className="max-w-7xl mx-auto px-4 flex flex-col md:flex-row md:items-center md:justify-between">
         {/* Copilot: Three columns for desktop, stacked for mobile */}
         <div className="flex flex-col md:flex-row w-full items-center justify-between">
           {/* Left: Logo */}
           <div className="flex-1 flex justify-center md:justify-start mb-4 md:mb-0">
-            <Logo width="80px" />
+            <Logo width="120px" />
           </div>
           {/* Center: Navigation links */}
           <div className="flex-1 flex justify-center space-x-6 mb-4 md:mb-0">

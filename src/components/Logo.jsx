@@ -1,15 +1,15 @@
 import React from 'react'
 
-// === Copilot: Using custom logo.png with consistent sizing ===
-// Fixed dimensions for uniform appearance across header, footer, and forms
-function Logo({width = '80px'}) {
+// === Copilot: Using custom logo.png with better visibility sizing ===
+// Increased size for better visibility across header, footer, and forms
+function Logo({width = '120px'}) {
   return (
     <img 
       src="/logo.png" 
       alt="Blog Logo" 
       style={{ 
         width: width, 
-        height: '40px',
+        height: '60px',
         objectFit: 'contain'
       }}
       className="object-contain"
