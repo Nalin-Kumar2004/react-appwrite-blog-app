@@ -11,8 +11,16 @@ export default function Post() {
     const navigate = useNavigate();
 
     const userData = useSelector((state) => state.auth.userData);
-
-    const isAuthor = post && userData ? post.userId === userData.$id : false;
+    // More robust author check: match stored userId OR Appwrite document permissions for this user
+    const canEdit = React.useMemo(() => {
+        if (!post || !userData) return false;
+        if (post.userId && post.userId === userData.$id) return true;
+        const perms = post.$permissions || [];
+        // Appwrite permissions look like: read("any"), update("user:USER_ID") etc.
+        return perms.some((p) =>
+            (p.startsWith('update(') || p.startsWith('delete(')) && p.includes(`user:${userData.$id}`)
+        );
+    }, [post, userData]);
 
     useEffect(() => {
         if (slug) {
@@ -37,25 +45,30 @@ export default function Post() {
             <Container>
                 {/* Featured image wrapper constrained like cards */}
                 <div className="w-full max-w-2xl mx-auto mb-6 relative bg-white rounded-xl p-2 shadow-md overflow-hidden">
+                    {/* Overlay buttons on md+ screens */}
+                    {canEdit && (
+                        <div className="hidden md:flex absolute right-3 top-3 z-10 gap-2">
+                            <Link to={`/edit-post/${post.$id}`}>
+                                <Button bgColor="bg-green-500" className="mr-0">Edit</Button>
+                            </Link>
+                            <Button bgColor="bg-red-500" onClick={deletePost}>Delete</Button>
+                        </div>
+                    )}
                     <img
                         src={appwriteService.getFileView(post.featuredImage)}
                         alt={post.title}
-                        className="w-full h-56 sm:h-64 md:h-96 lg:h-[28rem] object-cover rounded-lg"
+                        className="relative z-0 w-full h-56 sm:h-64 md:h-96 lg:h-[28rem] object-cover rounded-lg"
                     />
-
-                    {isAuthor && (
-                        <div className="absolute right-6 top-6">
-                            <Link to={`/edit-post/${post.$id}`}>
-                                <Button bgColor="bg-green-500" className="mr-3">
-                                    Edit
-                                </Button>
-                            </Link>
-                            <Button bgColor="bg-red-500" onClick={deletePost}>
-                                Delete
-                            </Button>
-                        </div>
-                    )}
                 </div>
+                {/* Inline buttons on small screens (always visible, no overlay) */}
+                {canEdit && (
+                    <div className="md:hidden max-w-2xl mx-auto -mt-2 mb-4 flex justify-end gap-2 px-2">
+                        <Link to={`/edit-post/${post.$id}`}>
+                            <Button bgColor="bg-green-500">Edit</Button>
+                        </Link>
+                        <Button bgColor="bg-red-500" onClick={deletePost}>Delete</Button>
+                    </div>
+                )}
                 <div className="w-full mb-6 text-center">
                     <h1 className="text-3xl font-extrabold mb-2">{post.title}</h1>
                 </div>

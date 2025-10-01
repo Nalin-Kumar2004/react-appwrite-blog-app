@@ -21,6 +21,7 @@ export default function PostForm({ post }) {
     const submit = async (data) => {
         if (!userData || !userData.$id) {
             alert("User not authenticated. Please log in again.");
+            navigate('/login');
             return;
         }
         if (post) {
