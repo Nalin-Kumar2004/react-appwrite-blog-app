@@ -160,6 +160,18 @@ This file tracks all user requests and the changes made by Copilot, including wh
 - **Why:**
   - Fixes the issue where refreshing or directly visiting a nested route would break the app on Vercel deployments.
 
+### Custom Logo Implementation
+- **User Request:** Replace the SVG logo with a custom logo.png file from the public folder.
+- **Action:**
+  - Updated `src/components/Logo.jsx` to use the custom logo image:
+    - Replaced the SVG element with an `<img>` tag pointing to `/logo.png`
+    - Added proper alt text and responsive styling with `object-contain`
+    - Maintains the same width prop functionality for consistent sizing across the app
+  - The logo now appears in the header, footer, login page, and signup page with the custom image.
+- **Why:**
+  - Provides a personalized brand identity using the user's custom logo instead of the generic SVG.
+  - Makes the website more professional and unique to the user's brand.
+
 ---------------------------------------------------------------------------------------------------------
 
   Appwrite serive :: getCurrentUser :: error TypeError: Failed to fetch
