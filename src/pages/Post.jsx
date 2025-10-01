@@ -35,11 +35,12 @@ export default function Post() {
     return post ? (
         <div className="py-8">
             <Container>
-                <div className="w-full flex justify-center mb-4 relative bg-white rounded-xl p-2 shadow-md">
+                {/* Featured image wrapper constrained like cards */}
+                <div className="w-full max-w-2xl mx-auto mb-6 relative bg-white rounded-xl p-2 shadow-md overflow-hidden">
                     <img
                         src={appwriteService.getFileView(post.featuredImage)}
                         alt={post.title}
-                        className="rounded-xl max-h-[400px] w-full object-cover"
+                        className="w-full h-64 md:h-96 object-cover rounded-lg"
                     />
 
                     {isAuthor && (
