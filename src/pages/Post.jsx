@@ -44,7 +44,7 @@ export default function Post() {
         <div className="py-8">
             <Container>
                 {/* Featured image wrapper constrained like cards */}
-                <div className="w-full max-w-2xl mx-auto mb-6 relative bg-white rounded-xl p-2 shadow-md overflow-hidden">
+                <div className="w-full max-w-2xl mx-auto mb-6 relative rounded-xl overflow-hidden">
                     {/* Overlay buttons on md+ screens */}
                     {canEdit && (
                         <div className="hidden md:flex absolute right-3 top-3 z-10 gap-2">
@@ -54,11 +54,11 @@ export default function Post() {
                             <Button bgColor="bg-red-500" onClick={deletePost}>Delete</Button>
                         </div>
                     )}
-                    <div className="relative z-0 w-full h-56 sm:h-64 md:h-96 lg:h-[28rem] flex items-center justify-center">
+                    <div className="relative z-0 w-full flex items-center justify-center">
                         <img
                             src={appwriteService.getFileView(post.featuredImage)}
                             alt={post.title}
-                            className="max-h-full max-w-full object-contain rounded-lg"
+                            className="w-full h-auto max-h-[60vh] md:max-h-[70vh] object-contain rounded-lg shadow-md"
                         />
                     </div>
                 </div>
