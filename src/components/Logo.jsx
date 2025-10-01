@@ -1,13 +1,17 @@
 import React from 'react'
 
-// === Copilot: Using custom logo.png from public folder ===
-// This replaces the SVG with the user's custom logo image
-function Logo({width = '100px'}) {
+// === Copilot: Using custom logo.png with consistent sizing ===
+// Fixed dimensions for uniform appearance across header, footer, and forms
+function Logo({width = '80px'}) {
   return (
     <img 
       src="/logo.png" 
       alt="Blog Logo" 
-      style={{ width: width, height: 'auto' }}
+      style={{ 
+        width: width, 
+        height: '40px',
+        objectFit: 'contain'
+      }}
       className="object-contain"
     />
   )
